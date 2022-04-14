@@ -179,41 +179,41 @@ TSOCOLP <=intTSOCOLP;
 
 emission : process
 begin
-	wait until CLK10I'event and CLK10I='1';
+	wait until CLK10I'event and CLK10I='1';--on attend le front montant
     TDONEP <= '0';
     TSTARTP <= '0';
     TREADDP <= '0';
     
-    if RESETN='0' then
+    if RESETN='0' then--reset
         intTRNSMTP <= '0';
         counter_oct_emis <= 0;
         counter_addr_emis <= 0;
         TDATAO <= X"00";
     else
-        if TAVAILP='1' then
+        if TAVAILP='1' then--!!!!!!!!!!!!! si tavailp==0 et qu'on est en émission, il devrait y avoir envoi du EFD?
             if counter_oct_emis=7 then
                 counter_oct_emis <= 0;
                 if TABORTP='1' or intTSOCOLP='1' then
                     intTRNSMTP <= '0';
                     counter_addr_emis <= 0;
-                    if TABORTP='1' and counter_abort < 3 then
-                        TDATAO <= "10101010"; --A vérifier
+                    if TABORTP='1' and counter_abort < 3 then --counter_abort n'est pas demandé par le CdC
+                        TDATAO <= x"AAAAAAAA"; --A==1010
                         counter_abort <= counter_abort + 1;
                     end if;    
-                else
+                else--si pas d'abort, transmission de la partie suivante du message
                     counter_abort <= 0;
-                    if counter_addr_emis=1 then
+                    if counter_addr_emis=1 then--StartFrameDelimiter
                         intTRNSMTP <= '1';
                         TDATAO <= SFD;
-                    elsif counter_addr_emis < 7 then
+                    elsif counter_addr_emis < 7 then--adresse destination
                         TREADDP <= '1';
                         TDATAO <= TDATAI;
-                    elsif counter_addr_emis < 13 then
+                    elsif counter_addr_emis < 13 then--adresse source
                         TDATAO <= NOADDRI(counter_addr_emis*8-49 downto counter_addr_emis*8-56);
-                    elsif TLASTP='0' then
+                    elsif TLASTP='0' then--donnée (si pas fin de trame)
                         TREADDP <= '1';
-                        TDATAO <= TDATAI;
-                    else 
+                        TDATAO <= TDATAI;--! tlasp n'est pas censé passer à 1 pour le dernier bit de data plutôt que pour l'efd? Si oui, décalage
+                    else --EndFrameDelimiter
                         TDATAO <= EFD;
                         TDONEP <= '1';
                         intTRNSMTP <= '0';
@@ -233,12 +233,12 @@ end process emission;
 -- PROCESS COLLISION
 --
 
---TSOCOLD ici pas dans emission
+--TSOCOLP ici pas dans emission
 collision : process (intRCVNGP,intTRNSMTP)
 begin
-    if intRCVNGP='1' and intTRNSMTP='1' then
+    if intRCVNGP='1' and intTRNSMTP='1' then--collision si émission et réception en même temps
         intTSOCOLP <= '1';
-    elsif intRCVNGP='0' then
+    elsif intRCVNGP='0' then--attendre la fin de la réception pour éviter la collision
         intTSOCOLP <= '0';
     end if;
 end process collision;
