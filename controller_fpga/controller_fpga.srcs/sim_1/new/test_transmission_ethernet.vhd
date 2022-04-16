@@ -90,7 +90,7 @@ signal trnsmt : std_logic;
 signal tstart : std_logic;
 signal tsocolp : std_logic;
 
--- plan d'une trame:s
+-- plan d'une trame:
 -- SFD - adresse dest - adresse src - data - EFD
 
 begin
@@ -98,14 +98,20 @@ begin
     controller : ethernet_Controller_src PORT MAP(byte, clean, ngp, rdatao, rdatai, rdone, enab, matip, rstart, clk, reset, tension, addr,abort, avail, tdatao, tdatai, tdone, tfinish, last, tread, trnsmt, tstart, tsocolp);
     clk <= not clk after clk_period/2;
     reset <= '0', '1' after clk_period*2;
-    enab <= '0', '1' after clk_period*5;
+    avail <= '0', '1' after clk_period*5, '0' after clk_period*8*32, '1' after clk_period*8*34;
+    tdatai <= x"da";
+    tabort<='0', '1' after clk_period*8*30, '0' after clk_period*8*33;
+    tlastp<='0','1' after clk_period*8*20, '0' after clk_period*8*21;
+    --collision:
+    enab <= '0', '1' after clk_period*8*40;
+    rdatai <= x"AB" after clk_period*8*41, x"aa" after clk_period*8*42,x"bb" after clk_period*8*43,x"cc" after clk_period*8*44,x"dd" after clk_period*8*45,x"ee" after clk_period*8*46,x"ff" after clk_period*8*47;
+   
+
     
     --scenarii à effectuer: envoi d'une trame standard, envoi aborted, collision.
-        --standard: availp=1, tdatai!=null, tabort=0, tsocolp=0, tlastp=0
+        --standard: availp=1, tdatai!=null, tabort=0, tlastp=0
         --aborted: passage de tabort à 1
-        --collision: standard+legacy
-        --en plus: et si availp!=1?
-    --(legacy) rdatai <= x"AB" after clk_period*8*1, x"aa" after clk_period*8*2,x"bb" after clk_period*8*3,x"cc" after clk_period*8*4,x"dd" after clk_period*8*5,x"ee" after clk_period*8*6,x"ff" after clk_period*8*7, x"bb" after clk_period*8*8,x"bb" after clk_period*8*9,x"cc" after clk_period*8*10,x"dd" after clk_period*8*11,x"ee" after clk_period*8*12,x"ff" after clk_period*8*13, x"00" after clk_period*8*14,x"ac" after clk_period*8*18,x"00" after clk_period*8*19, x"AB" after clk_period*8*20, x"aa" after clk_period*8*21,x"bb" after clk_period*8*22,x"cc" after clk_period*8*23,x"d0" after clk_period*8*24,x"ee" after clk_period*8*25,x"ff" after clk_period*8*26, x"bb" after clk_period*8*27,x"bb" after clk_period*8*28,x"cc" after clk_period*8*29,x"dd" after clk_period*8*30,x"ee" after clk_period*8*31,x"ff" after clk_period*8*32, x"00" after clk_period*8*33,x"ac" after clk_period*8*37,x"00" after clk_period*8*38;
+        --collision: tdatai+rdatai
     
     --rappel: pas de retour à la ligne possible pour run, tout doit être sur la même ligne
     --(possible de faire plusieurs lignes a <= '5654'; avec a identique ? )

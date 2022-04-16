@@ -191,7 +191,7 @@ begin
         TDATAO <= X"00";
     else
         if TAVAILP='1' then--!!!!!!!!!!!!! si tavailp==0 et qu'on est en émission, il devrait y avoir envoi du EFD?
-            if counter_oct_emis=7 then
+            if counter_oct_emis>7 then
                 counter_oct_emis <= 0;
                 if TABORTP='1' or intTSOCOLP='1' then
                     intTRNSMTP <= '0';
