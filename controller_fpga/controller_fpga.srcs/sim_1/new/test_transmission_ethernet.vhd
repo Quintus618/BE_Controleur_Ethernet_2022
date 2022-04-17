@@ -100,8 +100,8 @@ begin
     reset <= '0', '1' after clk_period*2;
     avail <= '0', '1' after clk_period*5, '0' after clk_period*8*32, '1' after clk_period*8*34;
     tdatai <= x"da";
-    tabort<='0', '1' after clk_period*8*30, '0' after clk_period*8*33;
-    tlastp<='0','1' after clk_period*8*20, '0' after clk_period*8*21;
+    abort<='0', '1' after clk_period*8*30, '0' after clk_period*8*33;
+    last<='0','1' after clk_period*8*20, '0' after clk_period*8*21;
     --collision:
     enab <= '0', '1' after clk_period*8*40;
     rdatai <= x"AB" after clk_period*8*41, x"aa" after clk_period*8*42,x"bb" after clk_period*8*43,x"cc" after clk_period*8*44,x"dd" after clk_period*8*45,x"ee" after clk_period*8*46,x"ff" after clk_period*8*47;
