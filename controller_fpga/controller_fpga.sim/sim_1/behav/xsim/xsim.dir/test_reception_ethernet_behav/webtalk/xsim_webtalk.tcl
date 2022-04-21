@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/
+webtalk_init -webtalk_dir /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Thu Mar 31 12:57:20 2022" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Thu Apr 21 10:15:33 2022" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2258646" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "db7f0987-d580-4df3-b364-f5511601c0c6" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "483950450dec423abf9532362eec37fa" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "111" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "115" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Ubuntu 20.04.3 LTS" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz" -context "user_environment"
@@ -28,5 +28,5 @@ webtalk_add_data -client xsim -key runtime -value "100 us" -context "xsim\\usage
 webtalk_add_data -client xsim -key iteration -value "1" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Time -value "0.02_sec" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Memory -value "114404_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 1092418042 -regid "" -xml /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_transmit -clientid 2005376807 -regid "" -xml /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

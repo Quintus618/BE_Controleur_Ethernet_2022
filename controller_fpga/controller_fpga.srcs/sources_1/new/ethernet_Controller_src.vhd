@@ -49,18 +49,18 @@ RSTARTP : out STD_LOGIC;
 CLK10I :  in STD_LOGIC;
 RESETN :  in STD_LOGIC;
 VCC :  in  STD_LOGIC;
-NOADDRI : in STD_LOGIC_VECTOR(47 downto 0);
-TABORTP : in STD_LOGIC;
-TAVAILP : in STD_LOGIC;
-TDATAI : in STD_LOGIC_VECTOR(7 downto 0);
-TDATAO : out STD_LOGIC_VECTOR(7 downto 0);
-TDONEP : out STD_LOGIC;
-TFINISHP : in STD_LOGIC;
-TLASTP : in STD_LOGIC;
-TREADDP : out STD_LOGIC;
-TRNSMTP : out STD_LOGIC;
-TSTARTP : out STD_LOGIC;
-TSOCOLP : out STD_LOGIC);
+NOADDRI : in STD_LOGIC_VECTOR(47 downto 0));
+--TABORTP : in STD_LOGIC;
+--TAVAILP : in STD_LOGIC;
+--TDATAI : in STD_LOGIC_VECTOR(7 downto 0);
+--TDATAO : out STD_LOGIC_VECTOR(7 downto 0);
+--TDONEP : out STD_LOGIC;
+--TFINISHP : in STD_LOGIC;
+--TLASTP : in STD_LOGIC;
+--TREADDP : out STD_LOGIC;
+--TRNSMTP : out STD_LOGIC;
+--TSTARTP : out STD_LOGIC;
+--TSOCOLP : out STD_LOGIC);
 end ethernet_Controller_src;
 
 architecture Behavioral of ethernet_Controller_src is
@@ -75,11 +75,11 @@ signal intRSMATIP : STD_LOGIC;
 signal checkaddr : STD_LOGIC;
 
 -- SIGNAUX TRANSMISSION
-signal intTRNSMTP : STD_LOGIC;
-signal intTSOCOLP : STD_LOGIC;
-signal counter_oct_emis : INTEGER range 0 to 7;
-signal counter_addr_emis : integer range 0 to 1500;
-signal counter_abort : INTEGER range 0 to 7;
+--signal intTRNSMTP : STD_LOGIC;
+--signal intTSOCOLP : STD_LOGIC;
+--signal counter_oct_emis : INTEGER range 0 to 7;
+--signal counter_addr_emis : integer range 0 to 1500;
+--signal counter_abort : INTEGER range 0 to 7;
 
 begin
 
@@ -174,73 +174,73 @@ end process reception;
 -- PROCESS EMISSION
 --
 
-TRNSMTP<=intTRNSMTP;
-TSOCOLP <=intTSOCOLP;
+--TRNSMTP<=intTRNSMTP;
+--TSOCOLP <=intTSOCOLP;
 
-emission : process
-begin
-	wait until CLK10I'event and CLK10I='1';--on attend le front montant
-    TDONEP <= '0';
-    TSTARTP <= '0';
-    TREADDP <= '0';
+--emission : process
+--begin
+--	wait until CLK10I'event and CLK10I='1';--on attend le front montant
+--    TDONEP <= '0';
+--    TSTARTP <= '0';
+--    TREADDP <= '0';
     
-    if RESETN='0' then--reset
-        intTRNSMTP <= '0';
-        counter_oct_emis <= 0;
-        counter_addr_emis <= 0;
-        TDATAO <= X"00";
-    else
-        if TAVAILP='1' then--!!!!!!!!!!!!! si tavailp==0 et qu'on est en émission, il devrait y avoir envoi du EFD?
-            if counter_oct_emis>7 then
-                counter_oct_emis <= 0;
-                if TABORTP='1' or intTSOCOLP='1' then
-                    intTRNSMTP <= '0';
-                    counter_addr_emis <= 0;
-                    if TABORTP='1' and counter_abort < 3 then --counter_abort n'est pas demandé par le CdC
-                        TDATAO <= x"AAAAAAAA"; --A==1010
-                        counter_abort <= counter_abort + 1;
-                    end if;    
-                else--si pas d'abort, transmission de la partie suivante du message
-                    counter_abort <= 0;
-                    if counter_addr_emis=1 then--StartFrameDelimiter
-                        intTRNSMTP <= '1';
-                        TDATAO <= SFD;
-                    elsif counter_addr_emis < 7 then--adresse destination
-                        TREADDP <= '1';
-                        TDATAO <= TDATAI;
-                    elsif counter_addr_emis < 13 then--adresse source
-                        TDATAO <= NOADDRI(counter_addr_emis*8-49 downto counter_addr_emis*8-56);
-                    elsif TLASTP='0' then--donnée (si pas fin de trame)
-                        TREADDP <= '1';
-                        TDATAO <= TDATAI;--! tlasp n'est pas censé passer à 1 pour le dernier bit de data plutôt que pour l'efd? Si oui, décalage
-                    else --EndFrameDelimiter
-                        TDATAO <= EFD;
-                        TDONEP <= '1';
-                        intTRNSMTP <= '0';
-                    end if;
-                    counter_addr_emis <= counter_addr_emis + 1;
-                end if;
-            else
-                counter_oct_emis <= counter_oct_emis + 1;
-            end if;
-        else
-            counter_addr_emis <= 0;
-        end if;
-    end if;
-end process emission;
+--    if RESETN='0' then--reset
+--        intTRNSMTP <= '0';
+--        counter_oct_emis <= 0;
+--        counter_addr_emis <= 0;
+--        TDATAO <= X"00";
+--    else
+--        if TAVAILP='1' then--!!!!!!!!!!!!! si tavailp==0 et qu'on est en émission, il devrait y avoir envoi du EFD?
+--            if counter_oct_emis>7 then
+--                counter_oct_emis <= 0;
+--                if TABORTP='1' or intTSOCOLP='1' then
+--                    intTRNSMTP <= '0';
+--                    counter_addr_emis <= 0;
+--                    if TABORTP='1' and counter_abort < 3 then --counter_abort n'est pas demandé par le CdC
+--                        TDATAO <= x"AA"; --A==1010
+--                        counter_abort <= counter_abort + 1;
+--                    end if;    
+--                else--si pas d'abort, transmission de la partie suivante du message
+--                    counter_abort <= 0;
+--                    if counter_addr_emis=1 then--StartFrameDelimiter
+--                       intTRNSMTP <= '1';
+--                        TDATAO <= SFD;
+--                    elsif counter_addr_emis < 7 then--adresse destination
+--                        TREADDP <= '1';
+--                       TDATAO <= TDATAI;
+--                    elsif counter_addr_emis < 13 then--adresse source
+--                        TDATAO <= NOADDRI(counter_addr_emis*8-49 downto counter_addr_emis*8-56);
+--                    elsif TLASTP='0' then--donnée (si pas fin de trame)
+--                        TREADDP <= '1';
+--                        TDATAO <= TDATAI;--! tlasp n'est pas censé passer à 1 pour le dernier bit de data plutôt que pour l'efd? Si oui, décalage
+--                    else --EndFrameDelimiter
+--                        TDATAO <= EFD;
+--                        TDONEP <= '1';
+--                        intTRNSMTP <= '0';
+--                    end if;
+--                    counter_addr_emis <= counter_addr_emis + 1;
+--                end if;
+--            else
+--                counter_oct_emis <= counter_oct_emis + 1;
+--            end if;
+--        else
+--            counter_addr_emis <= 0;
+--        end if;
+--    end if;
+--end process emission;
 
 --
 -- PROCESS COLLISION
 --
 
 --TSOCOLP ici pas dans emission
-collision : process (intRCVNGP,intTRNSMTP)
-begin
-    if intRCVNGP='1' and intTRNSMTP='1' then--collision si émission et réception en même temps
-        intTSOCOLP <= '1';
-    elsif intRCVNGP='0' then--attendre la fin de la réception pour éviter la collision
-        intTSOCOLP <= '0';
-    end if;
-end process collision;
+--collision : process (intRCVNGP,intTRNSMTP)
+--begin
+--    if intRCVNGP='1' and intTRNSMTP='1' then--collision si émission et réception en même temps
+--        intTSOCOLP <= '1';
+--    elsif intRCVNGP='0' then--attendre la fin de la réception pour éviter la collision
+--        intTSOCOLP <= '0';
+--    end if;
+--end process collision;
 
 end Behavioral;

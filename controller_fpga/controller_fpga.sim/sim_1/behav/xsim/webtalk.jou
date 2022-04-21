@@ -2,11 +2,11 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu Mar 31 09:40:39 2022
-# Process ID: 5538
-# Current directory: /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim
-# Command line: wbtcv -mode batch -source /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/webtalk.jou
+# Start of session at: Thu Apr 21 10:10:35 2022
+# Process ID: 10642
+# Current directory: /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /home/qdouarre/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/xsim_webtalk.tcl -notrace
+source /home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.sim/sim_1/behav/xsim/xsim.dir/test_reception_ethernet_behav/webtalk/xsim_webtalk.tcl -notrace
