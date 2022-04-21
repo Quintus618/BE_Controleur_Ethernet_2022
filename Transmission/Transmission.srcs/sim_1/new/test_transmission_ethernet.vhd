@@ -73,7 +73,7 @@ signal rdone : std_logic;
 signal enab : std_logic;
 signal matip : std_logic;
 signal rstart : std_logic;
-signal clk : std_logic := '0';
+signal clk : std_logic := '1';
 signal reset : std_logic;
 signal tension : std_logic;
 signal addr : std_logic_vector(47 downto 0):= x"aabbccddeeff";
@@ -96,10 +96,10 @@ begin
     controller : ethernet_Controller_src PORT MAP(byte, clean, ngp, rdatao, rdatai, rdone, enab, matip, rstart, clk, reset, tension, addr,abort, avail, tdatai, tdatao, tdone, last, tread, trnsmt, tstart, tsocolp);
     clk <= not clk after clk_period/2;
     reset <= '0', '1' after clk_period*2;
-    avail <= '0', '1' after clk_period*5, '0' after clk_period*8*32, '1' after clk_period*8*34;
-    tdatai <= x"11", x"12" after clk_period*8*16, x"13" after clk_period*8*17, x"14" after clk_period*8*18, x"15" after clk_period*8*19, x"16" after clk_period*8*20;
-    abort<='0', '1' after clk_period*8*25, '0' after clk_period*8*33;
-    last<='0','1' after clk_period*8*19, '0' after clk_period*(8*20);
+    avail <= '0', '1' after clk_period*5, '0' after clk_period*8*45;
+    tdatai <=x"aa" after clk_period*8*2, x"bb" after clk_period*8*3, x"cc" after clk_period*8*4, x"dd" after clk_period*8*5, x"ee" after clk_period*8*6, x"ff" after clk_period*8*7, x"11" after clk_period*8*14, x"12" after clk_period*8*16, x"13" after clk_period*8*17, x"14" after clk_period*8*18, x"15" after clk_period*8*19, x"16" after clk_period*8*20, x"aa" after clk_period*8*22, x"bb" after clk_period*8*23, x"cc" after clk_period*8*24, x"dd" after clk_period*8*25, x"ee" after clk_period*8*26, x"ff" after clk_period*8*27,x"aa" after clk_period*8*29,x"bb" after clk_period*8*31,x"cc" after clk_period*8*32,x"dd" after clk_period*8*33,x"ee" after clk_period*8*34,x"ff" after clk_period*8*35;
+    abort<='0', '1' after clk_period*8*25, '0' after clk_period*(8*25+1);
+    last<='0','1' after clk_period*8*19, '0' after clk_period*(8*19+1);
     --collision:
     enab <= '0', '1' after clk_period*8*40;
     rdatai <= x"AB" after clk_period*8*41, x"aa" after clk_period*8*42,x"bb" after clk_period*8*43,x"cc" after clk_period*8*44,x"dd" after clk_period*8*45,x"ee" after clk_period*8*46,x"ff" after clk_period*8*47;

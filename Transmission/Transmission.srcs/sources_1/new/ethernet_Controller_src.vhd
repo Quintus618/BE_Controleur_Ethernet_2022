@@ -76,6 +76,9 @@ signal checkaddr : STD_LOGIC;
 -- SIGNAUX TRANSMISSION
 signal intTRNSMTP : STD_LOGIC;
 signal intTSOCOLP : STD_LOGIC;
+signal aborting : STD_LOGIC;
+signal lastdata : STD_LOGIC;
+signal lastdata_emis : STD_LOGIC;
 signal counter_oct_emis : INTEGER range 0 to 7;
 signal counter_addr_emis : integer range 0 to 1500;
 signal counter_abort : INTEGER range 0 to 7;
@@ -183,42 +186,75 @@ begin
     TSTARTP <= '0';
     TREADDP <= '0';
     
-    if RESETN='0' then--reset
+    if RESETN='0' then -- RESET
         intTRNSMTP <= '0';
         counter_oct_emis <= 0;
         counter_addr_emis <= 0;
+        aborting <= '0';
+        lastdata<='0';
+        lastdata_emis<='0';
         TDATAO <= X"00";
     else
-        if TAVAILP='1' then--!!!!!!!!!!!!! si tavailp==0 et qu'on est en émission, il devrait y avoir envoi du EFD?
+        if TAVAILP='1' then
             if counter_oct_emis=7 then
-                if TABORTP='1' or intTSOCOLP='1' then
-                    intTRNSMTP <= '0';
+                if aborting='1' or intTSOCOLP='1' then --cas où il y a un abort ou une collision
                     counter_addr_emis <= 0;
-                    if TABORTP='1' and counter_abort < 3 then --counter_abort n'est pas demandé par le CdC
+                    if counter_abort < 3 then --on fait le padding de 32 bits alternance de 10
                         TDATAO <= x"AA"; --A==1010
                         counter_abort <= counter_abort + 1;
-                    end if;    
+                    else                      -- padding fini
+                        intTRNSMTP <= '0';
+                        aborting<='0';
+                        counter_abort <= 0;
+                    end if;  
+                    
+                    if aborting='1' and counter_abort = 3 then -- cas du abort, TDONEP High
+                        TDONEP <= '1';
+                    end if;
+                    
                 else--si pas d'abort, transmission de la partie suivante du message
-                    counter_abort <= 0;
-                    TREADDP <= '1';
+              
                     if counter_addr_emis=0 then--StartFrameDelimiter
                         intTRNSMTP <= '1';
                         TSTARTP<='1';
                         TDATAO <= SFD;
                     elsif counter_addr_emis < 7 then--adresse destination
                         TDATAO <= TDATAI;
+                        TREADDP <= '1';
                     elsif counter_addr_emis < 13 then--adresse source
                         TDATAO <= NOADDRI(counter_addr_emis*8-49 downto counter_addr_emis*8-56);   
-                    elsif TLASTP='0' then--donnée (si pas fin de trame)
-                        TDATAO <= TDATAI;--! tlasp n'est pas censé passer à 1 pour le dernier bit de data plutôt que pour l'efd? Si oui, décalage
+                    elsif TLASTP='0' and lastdata_emis='0' then--donnée (si pas fin de trame)
+                        TDATAO <= TDATAI;
+                        lastdata<='0'; --Dernier bit à transmettre qui va être suivi par EFD
+                        TREADDP <= '1';
                     else --EndFrameDelimiter
                         TDATAO <= EFD;
                         TDONEP <= '1';
+                        lastdata_emis<='0';
                         intTRNSMTP <= '0';
                     end if;
-                    counter_addr_emis <= counter_addr_emis + 1;
+                    
+                    if lastdata='1' then -- On a transmis le dernier bit maintenant on veut EFD
+                        lastdata_emis<='1';
+                    end if; 
+                    
+                    if lastdata='0' and lastdata_emis='1' then -- Fin de transmission de la trame, on réinitialise le compteur d'adresse
+                        counter_addr_emis <= 0;
+                    else
+                        counter_addr_emis <= counter_addr_emis + 1;
+                    end if;
+                    
                 end if;
-            end if;           
+            end if; 
+            
+            if TLASTP='1' then --On a l'info qu'il s'agit du dernier octet à transmettre dans RDATAI
+                lastdata<='1';
+            end if;  
+            
+            if TABORTP='1' then --On a reçu un Abort
+                aborting<='1';
+            end if; 
+                   
             counter_oct_emis <= (counter_oct_emis + 1) mod 8;
         else
             counter_addr_emis <= 0;
