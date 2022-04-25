@@ -102,16 +102,13 @@ begin
     last<='0','1' after clk_period*8*19, '0' after clk_period*(8*19+1);
     --collision:
     enab <= '0', '1' after clk_period*8*40;
-    rdatai <= x"AB" after clk_period*8*41, x"aa" after clk_period*8*42,x"bb" after clk_period*8*43,x"cc" after clk_period*8*44,x"dd" after clk_period*8*45,x"ee" after clk_period*8*46,x"ff" after clk_period*8*47;
+    rdatai <= x"AB" after clk_period*8*41, x"aa" after clk_period*8*42,x"bb" after clk_period*8*43,x"cc" after clk_period*8*44,x"dd" after clk_period*8*45,x"ee" after clk_period*8*46,x"ff" after clk_period*8*47,x"ac" after clk_period*8*50;
    
 
     
-    --scenarii à effectuer: envoi d'une trame standard, envoi aborted, collision.
+    --scenarii envoi d'une trame standard, envoi aborted, collision.
         --standard: availp=1, tdatai!=null, tabort=0, tlastp=0
         --aborted: passage de tabort à 1
         --collision: tdatai+rdatai
-    
-    --rappel: pas de retour à la ligne possible pour run, tout doit être sur la même ligne
-    --(possible de faire plusieurs lignes a <= '5654'; avec a identique ? )
-
+   
 end Behavioral;

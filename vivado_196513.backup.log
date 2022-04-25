@@ -1,0 +1,163 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Apr 23 16:48:42 2022
+# Process ID: 196513
+# Current directory: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022
+# Command line: vivado
+# Log file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/vivado.log
+# Journal file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/controller_fpga/controller_fpga.xpr
+INFO: [Project 1-313] Project file moved from '/home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 6295.660 ; gain = 119.316 ; free physical = 112246 ; free virtual = 140006
+update_compile_order -fileset sources_1
+close_project
+open_project /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.xpr
+INFO: [Project 1-313] Project file moved from '/home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/Transmission' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/data/ip'.
+update_compile_order -fileset sources_1
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+set_property -name {xsim.simulate.runtime} -value {100000ns} -objects [get_filesets sim_1]
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+update_ip_catalog
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+reset_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-2266] Removing simulation data...
+INFO: [Vivado 12-2267] Reset complete
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_transmission_ethernet' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj test_transmission_ethernet_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ethernet_Controller_src
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sim_1/new/test_transmission_ethernet.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_transmission_ethernet
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 71c93a757db54a33a29ff74552ff7135 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot test_transmission_ethernet_behav xil_defaultlib.test_transmission_ethernet -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_Controller_src [ethernet_controller_src_default]
+Compiling architecture behavioral of entity xil_defaultlib.test_transmission_ethernet
+Built simulation snapshot test_transmission_ethernet_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim/xsim.dir/test_transmission_ethernet_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Apr 23 16:55:30 2022...
+run_program: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 6389.648 ; gain = 0.000 ; free physical = 112348 ; free virtual = 140174
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_transmission_ethernet_behav -key {Behavioral:sim_1:Functional:test_transmission_ethernet} -tclbatch {test_transmission_ethernet.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source test_transmission_ethernet.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_transmission_ethernet_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns
+launch_simulation: Time (s): cpu = 00:00:19 ; elapsed = 00:00:15 . Memory (MB): peak = 6454.289 ; gain = 64.641 ; free physical = 112318 ; free virtual = 140154
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_transmission_ethernet' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj test_transmission_ethernet_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ethernet_Controller_src
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sim_1/new/test_transmission_ethernet.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_transmission_ethernet
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 71c93a757db54a33a29ff74552ff7135 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot test_transmission_ethernet_behav xil_defaultlib.test_transmission_ethernet -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_Controller_src [ethernet_controller_src_default]
+Compiling architecture behavioral of entity xil_defaultlib.test_transmission_ethernet
+Built simulation snapshot test_transmission_ethernet_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_transmission_ethernet_behav -key {Behavioral:sim_1:Functional:test_transmission_ethernet} -tclbatch {test_transmission_ethernet.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source test_transmission_ethernet.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_transmission_ethernet_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 6696.184 ; gain = 2.770 ; free physical = 113140 ; free virtual = 141570
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 23 17:53:17 2022...

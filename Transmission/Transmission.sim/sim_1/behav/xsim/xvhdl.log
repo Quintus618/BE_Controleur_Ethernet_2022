@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ethernet_Controller_src
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sim_1/new/test_transmission_ethernet.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_transmission_ethernet
