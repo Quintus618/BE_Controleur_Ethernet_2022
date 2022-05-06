@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri May  6 17:23:40 2022
-# Process ID: 165619
+# Start of session at: Fri May  6 18:48:55 2022
+# Process ID: 197667
 # Current directory: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022
 # Command line: vivado
 # Log file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/vivado.log
@@ -12,12 +12,16 @@
 start_gui
 open_project /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-source test_transmission_ethernet.tcl
-close_sim
-close_project
-open_project /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/controller_fpga/controller_fpga.xpr
-update_compile_order -fileset sources_1
-close_project
-open_project /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.xpr
-update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 64
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+file mkdir /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/constrs_1
+file mkdir /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/constrs_1/new
+close [ open /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/constrs_1/new/contrest_f.xdc w ]
+add_files -fileset constrs_1 /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/constrs_1/new/contrest_f.xdc
+set_property target_constrs_file /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/constrs_1/new/contrest_f.xdc [current_fileset -constrset]
+refresh_design
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -name post_wizard
+check_timing -name post_wizard
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1

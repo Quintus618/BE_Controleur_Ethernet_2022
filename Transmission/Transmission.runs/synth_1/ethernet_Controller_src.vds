@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Mon Apr 25 10:52:37 2022
-# Process ID: 65025
+# Start of session at: Fri May  6 19:47:08 2022
+# Process ID: 209223
 # Current directory: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.runs/synth_1
 # Command line: vivado -log ethernet_Controller_src.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ethernet_Controller_src.tcl
 # Log file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.runs/synth_1/ethernet_Controller_src.vds
@@ -15,34 +15,34 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 65054 
+INFO: Helper process launched with PID 209241 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1255.273 ; gain = 83.809 ; free physical = 119323 ; free virtual = 142599
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1255.273 ; gain = 83.809 ; free physical = 116519 ; free virtual = 144567
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'ethernet_Controller_src' [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:63]
-WARNING: [Synth 8-6014] Unused sequential element checkaddr_reg was removed.  [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:117]
+WARNING: [Synth 8-6014] Unused sequential element checkaddr_reg was removed.  [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:118]
 INFO: [Synth 8-256] done synthesizing module 'ethernet_Controller_src' (1#1) [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:63]
 WARNING: [Synth 8-3331] design ethernet_Controller_src has unconnected port VCC
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1299.898 ; gain = 128.434 ; free physical = 119332 ; free virtual = 142611
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1299.898 ; gain = 128.434 ; free physical = 116528 ; free virtual = 144578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1299.898 ; gain = 128.434 ; free physical = 119333 ; free virtual = 142612
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1299.898 ; gain = 128.434 ; free physical = 116528 ; free virtual = 144578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
-INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1307.902 ; gain = 136.438 ; free physical = 119333 ; free virtual = 142611
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1307.902 ; gain = 136.438 ; free physical = 116528 ; free virtual = 144577
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "intRSMATIP" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "TSTARTP" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "counter_addr_emis" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-WARNING: [Synth 8-327] inferring latch for variable 'intTSOCOLP_reg' [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:177]
+WARNING: [Synth 8-327] inferring latch for variable 'intTSOCOLP_reg' [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:178]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1323.918 ; gain = 152.453 ; free physical = 119318 ; free virtual = 142598
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1323.918 ; gain = 152.453 ; free physical = 116513 ; free virtual = 144564
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -58,17 +58,16 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     12 Bit       Adders := 1     
 	   2 Input     11 Bit       Adders := 3     
-	   2 Input      3 Bit       Adders := 2     
-	   2 Input      2 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 3     
 +---Registers : 
 	               11 Bit    Registers := 3     
 	                8 Bit    Registers := 2     
-	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 13    
+	                3 Bit    Registers := 3     
+	                1 Bit    Registers := 14    
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 6     
-	   2 Input      1 Bit        Muxes := 56    
+	   2 Input      8 Bit        Muxes := 5     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 70    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -81,17 +80,16 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     12 Bit       Adders := 1     
 	   2 Input     11 Bit       Adders := 3     
-	   2 Input      3 Bit       Adders := 2     
-	   2 Input      2 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 3     
 +---Registers : 
 	               11 Bit    Registers := 3     
 	                8 Bit    Registers := 2     
-	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 13    
+	                3 Bit    Registers := 3     
+	                1 Bit    Registers := 14    
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 6     
-	   2 Input      1 Bit        Muxes := 56    
+	   2 Input      8 Bit        Muxes := 5     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 70    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -109,13 +107,13 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'counter_addr_emis_reg[10:0]' into 'counter_addr_emis_reg[10:0]' [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:190]
-WARNING: [Synth 8-6014] Unused sequential element counter_addr_emis_reg was removed.  [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:190]
+INFO: [Synth 8-4471] merging register 'counter_addr_emis_reg[10:0]' into 'counter_addr_emis_reg[10:0]' [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:191]
+WARNING: [Synth 8-6014] Unused sequential element counter_addr_emis_reg was removed.  [/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sources_1/new/ethernet_Controller_src.vhd:191]
 INFO: [Synth 8-5546] ROM "intRSMATIP" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "TSTARTP" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3331] design ethernet_Controller_src has unconnected port VCC
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119152 ; free virtual = 142452
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -128,7 +126,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119152 ; free virtual = 142453
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144413
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -140,7 +138,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116340 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -164,7 +162,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -177,7 +175,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -189,25 +187,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -225,12 +223,12 @@ Report Cell Usage:
 +------+-----+------+
 |1     |BUFG |     1|
 |2     |LUT1 |     4|
-|3     |LUT2 |     9|
-|4     |LUT3 |    14|
-|5     |LUT4 |    21|
-|6     |LUT5 |    20|
-|7     |LUT6 |    78|
-|8     |FDRE |    59|
+|3     |LUT2 |    10|
+|4     |LUT3 |    13|
+|5     |LUT4 |    28|
+|6     |LUT5 |    23|
+|7     |LUT6 |    79|
+|8     |FDRE |    61|
 |9     |LDP  |     1|
 |10    |IBUF |    70|
 |11    |OBUF |    27|
@@ -240,14 +238,14 @@ Report Instance Areas:
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   304|
+|1     |top      |       |   317|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119150 ; free virtual = 142451
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116341 ; free virtual = 144412
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.043 ; gain = 275.578 ; free physical = 119153 ; free virtual = 142453
-Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1447.051 ; gain = 275.578 ; free physical = 119164 ; free virtual = 142465
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.035 ; gain = 276.570 ; free physical = 116343 ; free virtual = 144415
+Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:23 . Memory (MB): peak = 1448.043 ; gain = 276.570 ; free physical = 116354 ; free virtual = 144425
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 71 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -260,9 +258,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 17 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:25 . Memory (MB): peak = 1568.070 ; gain = 408.250 ; free physical = 119115 ; free virtual = 142430
+synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:25 . Memory (MB): peak = 1568.062 ; gain = 408.242 ; free physical = 116306 ; free virtual = 144392
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.runs/synth_1/ethernet_Controller_src.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file ethernet_Controller_src_utilization_synth.rpt -pb ethernet_Controller_src_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1592.082 ; gain = 0.000 ; free physical = 119115 ; free virtual = 142431
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 25 10:53:12 2022...
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1592.074 ; gain = 0.000 ; free physical = 116307 ; free virtual = 144392
+INFO: [Common 17-206] Exiting Vivado at Fri May  6 19:47:43 2022...

@@ -29,5 +29,4 @@ Choix:
 *Conformément à 4-3 et 4-4 toujours, TREADDP n'est pas activé pour les adresses mais uniquement pour la partie données.
 *Certaines variables "de sauvegarde d'état" ont été rajoutées en interne, par exemple aborting qui permet de garder en mémoire la réception d'un TABORTP sur cette trame, ou "en_cours" qui permet de savoir qu'on a commencé à émettre une trame (et donc un SFD) et qu'on ne peut donc pas s'arrêter avant d'avoir transmis les adresses et l'EFD même si aucune donnée n'est disponible à transmettre.
 
-La fréquence maximale de fonctionnement est de 240MHz.
-Le schéma final comporte 306 cellules feuilles.
+Le schéma post-synthèse comporte 320 cellules feuilles; le rapport de timing avec une contrainte d'une clock à 100MHz (soit 10ns) indique une pire marge négative de 4,112ns soit une fréquence maximale de 243,2 MHz.
