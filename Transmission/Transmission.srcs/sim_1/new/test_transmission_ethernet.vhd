@@ -93,22 +93,35 @@ signal tsocolp : std_logic;
 
 begin
 
-    controller : ethernet_Controller_src PORT MAP(byte, clean, ngp, rdatao, rdatai, rdone, enab, matip, rstart, clk, reset, tension, addr,abort, avail, tdatai, tdatao, tdone, last, tread, trnsmt, tstart, tsocolp);
-    clk <= not clk after clk_period/2;
-    reset <= '0', '1' after clk_period*2;
-    avail <= '0', '1' after clk_period*5, '0' after clk_period*8*45;
-    tdatai <=x"aa" after clk_period*8*2, x"bb" after clk_period*8*3, x"cc" after clk_period*8*4, x"dd" after clk_period*8*5, x"ee" after clk_period*8*6, x"ff" after clk_period*8*7, x"11" after clk_period*8*14, x"12" after clk_period*8*16, x"13" after clk_period*8*17, x"14" after clk_period*8*18, x"15" after clk_period*8*19, x"16" after clk_period*8*20, x"aa" after clk_period*8*22, x"bb" after clk_period*8*23, x"cc" after clk_period*8*24, x"dd" after clk_period*8*25, x"ee" after clk_period*8*26, x"ff" after clk_period*8*27,x"aa" after clk_period*8*29,x"bb" after clk_period*8*31,x"cc" after clk_period*8*32,x"dd" after clk_period*8*33,x"ee" after clk_period*8*34,x"ff" after clk_period*8*35;
-    abort<='0', '1' after clk_period*8*25, '0' after clk_period*(8*25+1);
-    last<='0','1' after clk_period*8*19, '0' after clk_period*(8*19+1);
-    --collision:
-    enab <= '0', '1' after clk_period*8*40;
-    rdatai <= x"AB" after clk_period*8*41, x"aa" after clk_period*8*42,x"bb" after clk_period*8*43,x"cc" after clk_period*8*44,x"dd" after clk_period*8*45,x"ee" after clk_period*8*46,x"ff" after clk_period*8*47,x"ac" after clk_period*8*50;
-   
+--! Merci de n'avoir que les tests de réception OU ceux de transmission et collision décommentés en même temps
 
+    controller : ethernet_Controller_src PORT MAP(byte, clean, ngp, rdatao, rdatai, rdone, enab, matip, rstart, clk, reset, tension, addr,abort, avail, tdatai, tdatao, tdone, last, tread, trnsmt, tstart, tsocolp);
     
-    --scenarii envoi d'une trame standard, envoi aborted, collision.
-        --standard: availp=1, tdatai!=null, tabort=0, tlastp=0
+    clk <= not clk after clk_period/2;    
+    reset <= '0', '1' after clk_period*2;
+    
+    --------------Tests de réception
+    --enab <= '0', '1' after clk_period*5;
+    --rdatai <= x"AB" after clk_period*8*1, x"aa" after clk_period*8*2,x"bb" after clk_period*8*3,x"cc" after clk_period*8*4,x"dd" after clk_period*8*5,x"ee" after clk_period*8*6,x"ff" after clk_period*8*7, x"bb" after clk_period*8*8,x"bb" after clk_period*8*9,x"cc" after clk_period*8*10,x"dd" after clk_period*8*11,x"ee" after clk_period*8*12,x"ff" after clk_period*8*13, x"00" after clk_period*8*14,x"ac" after clk_period*8*18,x"00" after clk_period*8*19, x"AB" after clk_period*8*20, x"aa" after clk_period*8*21,x"bb" after clk_period*8*22,x"cc" after clk_period*8*23,x"d0" after clk_period*8*24,x"ee" after clk_period*8*25,x"ff" after clk_period*8*26, x"bb" after clk_period*8*27,x"bb" after clk_period*8*28,x"cc" after clk_period*8*29,x"dd" after clk_period*8*30,x"ee" after clk_period*8*31,x"ff" after clk_period*8*32, x"00" after clk_period*8*33,x"ac" after clk_period*8*37,x"00" after clk_period*8*38;
+    --cette ligne ne doit pas être décommentée en même temps que les tests de transmission et collision        
+    
+    -------------Tests de transmission et collision
+    avail <= '0', '1' after clk_period*5,'0' after clk_period*8*21, '1' after clk_period*8*23, '0' after clk_period*8*45;
+    
+    tdatai <=x"aa" after clk_period*8*2, x"bb" after clk_period*8*3, x"cc" after clk_period*8*4, x"dd" after clk_period*8*5, x"ee" after clk_period*8*6, x"ff" after clk_period*8*7, x"da" after clk_period*8*8, x"ad" after clk_period*8*24, x"bb" after clk_period*8*27, x"cc" after clk_period*8*28, x"dd" after clk_period*8*29, x"ee" after clk_period*8*30, x"ff" after clk_period*8*31,x"aa" after clk_period*8*33,x"bb" after clk_period*8*35,x"cc" after clk_period*8*36,x"dd" after clk_period*8*37,x"ee" after clk_period*8*38,x"ff" after clk_period*8*39;
+    
+    --fin de l'envoi standard:
+    last<='0','1' after clk_period*8*20, '0' after clk_period*(8*20+1);
+    --abort:
+    abort<='0', '1' after clk_period*8*27, '0' after clk_period*(8*27+1);
+    --collision:
+    enab <= '0', '1' after clk_period*8*44;
+    rdatai <= x"AB" after clk_period*8*45, x"aa" after clk_period*8*46,x"bb" after clk_period*8*47,x"cc" after clk_period*8*48,x"dd" after clk_period*8*49,x"ee" after clk_period*8*50,x"ff" after clk_period*8*51,x"ac" after clk_period*8*55;
+      
+    --scenarii: envoi d'une trame standard, envoi aborted, collision.
+        --standard: availp=1, tdatai!=null, tabort=0, tlastp=0->1
         --aborted: passage de tabort à 1
-        --collision: tdatai+rdatai
+        --collision: tdatai+rdatai / TRNSMTP et RCVNGP simultanés
+        
    
 end Behavioral;

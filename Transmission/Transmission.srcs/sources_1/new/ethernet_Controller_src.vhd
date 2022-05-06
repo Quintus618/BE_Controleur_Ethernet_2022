@@ -75,6 +75,7 @@ signal checkaddr : STD_LOGIC;
 signal intTRNSMTP : STD_LOGIC;
 signal intTSOCOLP : STD_LOGIC;
 signal aborting : STD_LOGIC;
+signal en_cours : STD_LOGIC;
 signal lastdata : STD_LOGIC;
 signal lastdata_emis : STD_LOGIC;
 signal counter_oct_emis : INTEGER range 0 to 7;
@@ -182,7 +183,7 @@ begin
     TDONEP <= '0';
     TSTARTP <= '0';
     TREADDP <= '0';
-    --redescente des bursts out s'il y a lieu
+    --redescente des bursts en sortie s'il y a lieu
     
     if RESETN='0' then -- RESET
         intTRNSMTP <= '0';
@@ -190,24 +191,29 @@ begin
         counter_addr_emis <= 0;
         aborting <= '0';
         lastdata<='0';
+        en_cours<='0';
         lastdata_emis<='0';
         TDATAO <= X"00";
     else
         if TAVAILP='1' then--il y a des données à transmettre
+            en_cours<='1';
+        end if;
+        if en_cours='1' then
             if counter_oct_emis=7 then--il est temps de transmettre
                 if aborting='1' or intTSOCOLP='1' then --cas où il y a un abort ou une collision
                     counter_addr_emis <= 0;
-                    if counter_abort < 3 then --on fait le padding de 32 bits (4*8) alternance de 10
-                        TDATAO <= x"AA"; --A==1010
+                    if counter_abort < 4 then --on fait le padding de 32 bits (4*8) alternance de 10
+                        TDATAO <= x"AA"; --A==1010 --vraiment nécessaire que la première fois mais évite un if sans else
                         counter_abort <= counter_abort + 1;
-                    else         -- padding fini
+                    else         -- padding fini, envoi du EFD et (si abort mais pas si collision) de TDONEP
                         intTRNSMTP <= '0';
+                        TDATAO<=EFD;
+                        en_cours<='0';
                         aborting<='0';
                         counter_abort <= 0;
-                    end if;  
-                    
-                    if aborting='1' and counter_abort = 3 then -- cas du abort, TDONEP High
-                        TDONEP <= '1';
+                        if aborting='1' and counter_abort = 4 then -- cas du abort, TDONEP High
+                            TDONEP <= '1';
+                        end if;
                     end if;
                     
                 else--si pas d'abort, transmission de la partie suivante du message
@@ -218,15 +224,15 @@ begin
                         TDATAO <= SFD;
                     elsif counter_addr_emis < 7 then--adresse destination
                         TDATAO <= TDATAI;
-                        TREADDP <= '1';
                     elsif counter_addr_emis < 13 then--adresse source
                         TDATAO <= NOADDRI(counter_addr_emis*8-49 downto counter_addr_emis*8-56);   
-                    elsif TLASTP='0' and lastdata_emis='0' then--donnée (si pas fin de trame)
+                    elsif TLASTP='0' and lastdata_emis='0' and TAVAILP='1' then--donnée (si pas fin de trame)
                         TDATAO <= TDATAI;
                         lastdata<='0'; --Dernier bit à transmettre qui va être suivi par EFD
                         TREADDP <= '1';
                     else --EndFrameDelimiter
                         TDATAO <= EFD;
+                        en_cours<='0';
                         TDONEP <= '1';
                         lastdata_emis<='0';
                         intTRNSMTP <= '0';

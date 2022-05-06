@@ -1,0 +1,27 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Apr 26 16:45:45 2022
+# Process ID: 261072
+# Current directory: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022
+# Command line: vivado
+# Log file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/vivado.log
+# Journal file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source test_transmission_ethernet.tcl
+close_sim
+launch_simulation
+source test_transmission_ethernet.tcl
+launch_simulation -mode post-implementation -type functional
+source test_transmission_ethernet.tcl
+current_sim simulation_2
+close_sim
+launch_simulation
+source test_transmission_ethernet.tcl
+close_sim
+close_sim

@@ -1,0 +1,315 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Apr 26 16:45:45 2022
+# Process ID: 261072
+# Current directory: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022
+# Command line: vivado
+# Log file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/vivado.log
+# Journal file: /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 6285.227 ; gain = 77.812 ; free physical = 110214 ; free virtual = 138198
+update_compile_order -fileset sources_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_transmission_ethernet' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj test_transmission_ethernet_vhdl.prj
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 71c93a757db54a33a29ff74552ff7135 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot test_transmission_ethernet_behav xil_defaultlib.test_transmission_ethernet -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_transmission_ethernet_behav -key {Behavioral:sim_1:Functional:test_transmission_ethernet} -tclbatch {test_transmission_ethernet.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source test_transmission_ethernet.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_transmission_ethernet_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns
+launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 6367.055 ; gain = 60.809 ; free physical = 110197 ; free virtual = 138182
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_transmission_ethernet' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj test_transmission_ethernet_vhdl.prj
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 71c93a757db54a33a29ff74552ff7135 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot test_transmission_ethernet_behav xil_defaultlib.test_transmission_ethernet -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_transmission_ethernet_behav -key {Behavioral:sim_1:Functional:test_transmission_ethernet} -tclbatch {test_transmission_ethernet.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source test_transmission_ethernet.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_transmission_ethernet_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns
+launch_simulation: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 6399.020 ; gain = 8.004 ; free physical = 110177 ; free virtual = 138161
+launch_simulation -mode post-implementation -type functional
+INFO: [Vivado 12-5682] Launching post-implementation functional simulation in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [Netlist 29-17] Analyzing 70 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 6570.762 ; gain = 0.000 ; free physical = 109986 ; free virtual = 137955
+Restored from archive | CPU: 0.030000 secs | Memory: 0.321381 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 6570.762 ; gain = 0.000 ; free physical = 109986 ; free virtual = 137955
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:29 ; elapsed = 00:00:23 . Memory (MB): peak = 6801.258 ; gain = 402.238 ; free physical = 109825 ; free virtual = 137794
+INFO: [SIM-utils-31] Writing simulation netlist file for design 'impl_1'...
+INFO: [SIM-utils-33] write_vhdl -mode funcsim -nolib -force -file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim/test_transmission_ethernet_func_impl.vhd"
+INFO: [SIM-utils-36] Netlist generated:/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim/test_transmission_ethernet_func_impl.vhd
+INFO: [SIM-utils-54] Inspecting design source files for 'test_transmission_ethernet' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim'
+xvhdl --incr --relax -prj test_transmission_ethernet_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim/test_transmission_ethernet_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ethernet_Controller_src
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.srcs/sim_1/new/test_transmission_ethernet.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_transmission_ethernet
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 71c93a757db54a33a29ff74552ff7135 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot test_transmission_ethernet_func_impl xil_defaultlib.test_transmission_ethernet -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture ibuf_v of entity unisim.IBUF [\IBUF(1,9)(1,1)(1,4)(1,7)\]
+Compiling architecture obuf_v of entity unisim.OBUF [\OBUF(1,9)(1,7)(1,4)\]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11111111110111111111...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11111111111111111111...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1000000000000000")(0...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000000000...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0111111111111111")(0...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111111111111111...]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="10111111111111111111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111111111111111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11110000010100111111...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="10101010101010101010...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="11011111")(0,7)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111100001111000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000001000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111110111011100000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="01000000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="0111")(0,3)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0000000010000000")(0...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="01000100010001000100...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000111111111111...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00001111001101011111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111111111111111...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0000000000000001")(0...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1110111111101010")(0...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00001010000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="01110111011101111111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="01111111000000000000...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1110")(0,3)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10000000")(0,7)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000001110...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="10001010000000100000...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1110111011101111")(0...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111111111110111")(0...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10000000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11100000000000000000...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="10000000000000000000...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="11100000")(0,7)\]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000110011001101010...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000011010100110...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10000000000000000000...]
+Compiling architecture lut1_v of entity unisim.LUT1 [\LUT1(init="0001")(0,3)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10001111")(0,7)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="01111111111111111111...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="0110")(0,3)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01111000")(0,7)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0111111110000000")(0...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="01111111111111111000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11110100000000001111...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0000000001110000")(0...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000011100000111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000011100000111...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01100000")(0,7)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0110101000000000")(0...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="01101010101010100000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11110000111100101010...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10101010101010101010...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000001000000000...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00001000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture ldpe_v of entity unisim.LDPE [ldpe_default]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="0001")(0,3)\]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1000")(0,3)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10111010101110001010...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111111101001111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111111111110001...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="11111110")(0,7)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000001")(0,7)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0111011101111111")(0...]
+Compiling architecture structure of entity xil_defaultlib.ethernet_Controller_src [ethernet_controller_src_default]
+Compiling architecture behavioral of entity xil_defaultlib.test_transmission_ethernet
+Built simulation snapshot test_transmission_ethernet_func_impl
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim/xsim.dir/test_transmission_ethernet_func_impl/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Apr 26 16:47:34 2022...
+run_program: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 6801.258 ; gain = 0.000 ; free physical = 109815 ; free virtual = 137800
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/impl/func/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_transmission_ethernet_func_impl -key {Post-Implementation:sim_1:Functional:test_transmission_ethernet} -tclbatch {test_transmission_ethernet.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source test_transmission_ethernet.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_transmission_ethernet_func_impl' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns
+launch_simulation: Time (s): cpu = 00:00:51 ; elapsed = 00:00:35 . Memory (MB): peak = 6801.258 ; gain = 402.238 ; free physical = 109778 ; free virtual = 137763
+current_sim simulation_2
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_transmission_ethernet' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj test_transmission_ethernet_vhdl.prj
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 71c93a757db54a33a29ff74552ff7135 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot test_transmission_ethernet_behav xil_defaultlib.test_transmission_ethernet -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/Transmission/Transmission.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_transmission_ethernet_behav -key {Behavioral:sim_1:Functional:test_transmission_ethernet} -tclbatch {test_transmission_ethernet.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source test_transmission_ethernet.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_transmission_ethernet_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns
+launch_simulation: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 7138.949 ; gain = 3.000 ; free physical = 109600 ; free virtual = 137574
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 26 16:54:39 2022...

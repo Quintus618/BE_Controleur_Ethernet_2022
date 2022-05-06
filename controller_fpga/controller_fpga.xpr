@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="/home/qdouarre/Documents/4A/BE_ethernet/BE_controleur_ethernet/controller_fpga/controller_fpga.xpr">
+<Project Version="7" Minor="38" Path="/home/favary/Bureau/xilinx_tps/BE_Controleur_Ethernet_2022/controller_fpga/controller_fpga.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="483950450dec423abf9532362eec37fa"/>
@@ -34,7 +34,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="basys3"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="76"/>
+    <Option Name="WTXSimLaunchSim" Val="77"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
